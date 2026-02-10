@@ -1,4 +1,4 @@
-import { type Locator, type Page, expect } from '@playwright/test';
+import { type Locator, type Page } from '@playwright/test';
 
 export class LoginPage {
     readonly page: Page;
@@ -15,7 +15,7 @@ export class LoginPage {
         this.loginButton = page.getByRole('button', { name: 'Login' });
     }
 
-    async login(username: string, password: string) {
+    login = async (username: string, password: string) => {
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
